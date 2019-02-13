@@ -79,6 +79,18 @@
             <defaultsDescriptor>webdefault.xml</defaultsDescriptor>
           </webApp>
         </configuration>
+        <executions>
+            <execution>
+              <id>start-jetty</id>
+              <phase>pre-integration-test</phase>
+              <goals>
+                <goal>start</goal>
+              </goals>
+              <configuration>
+                <scanIntervalSeconds>0</scanIntervalSeconds>
+              </configuration>
+            </execution>
+          </executions>
       </plugin>
 
     </plugins>
