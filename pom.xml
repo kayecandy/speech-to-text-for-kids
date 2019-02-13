@@ -18,7 +18,7 @@
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <groupId>com.example.codelab</groupId>
-  <artifactId>speaking-with-a-webpage</artifactId>
+  <artifactId>speech-to-text-for-kids</artifactId>
 
   <properties>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -61,11 +61,20 @@
     <plugins>
 
       <plugin>
+        <groupId>com.heroku.sdk</groupId>
+        <artifactId>heroku-maven-plugin</artifactId>
+        <version>2.0.7</version>
+      </plugin>
+
+      <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>appengine-maven-plugin</artifactId>
         <version>${appengine.maven.plugin}</version>
         <configuration>
           <!-- deploy configuration -->
+          <processTypes>
+               <web>mvn jetty:run</web>
+          </processTypes>
         </configuration>
       </plugin>
 
@@ -79,25 +88,6 @@
             <defaultsDescriptor>webdefault.xml</defaultsDescriptor>
           </webApp>
         </configuration>
-        <executions>
-            <execution>
-              <id>start-jetty</id>
-              <phase>pre-integration-test</phase>
-              <goals>
-                <goal>start</goal>
-              </goals>
-              <configuration>
-                <scanIntervalSeconds>0</scanIntervalSeconds>
-              </configuration>
-            </execution>
-            <execution>
-              <id>stop-jetty</id>
-              <phase>post-integration-test</phase>
-               <goals>
-                 <goal>stop</goal>
-               </goals>
-             </execution>
-          </executions>
       </plugin>
 
     </plugins>
