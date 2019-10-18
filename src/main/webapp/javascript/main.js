@@ -36,10 +36,19 @@
 
 
 (function audioInit() {
+
+  var context;
+	
   // Check for non Web Audio API browsers.
-  if (!window.AudioContext) {
-    alert("Web Audio isn't available in your browser.");
-    return;
+  if(window.AudioContext){
+	  context = new AudioContext();
+	  alert('audio');
+  }else if(window.webkitAudioContext){
+	  context = new webkitAudioContext();
+	  alert('webkit')
+  }else{
+	  alert("Web Audio isn't available in your browser.");
+	  return;
   }
 
   var analyser;
@@ -52,7 +61,6 @@
   var playButton = document.getElementById('playbutton');
 
   // Hook up the play/pause state to the microphone context
-  var context = new AudioContext();
   playButton.addEventListener('pause', context.suspend.bind(context));
   playButton.addEventListener('play', context.resume.bind(context));
 
@@ -151,6 +159,7 @@
 
     function toggleWebsocket(e) {
       var context = e.target;
+      console.log('toggle');
       if (context.state === 'running') {
         newWebsocket();
       } else if (context.state === 'suspended') {

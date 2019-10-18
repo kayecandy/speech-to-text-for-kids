@@ -37,6 +37,12 @@ $(function(){
 	// TODO: Implement on server-side
 	function getNextQuestion(){
 		iQuestion++;
+
+		if(iQuestion > questions.length){
+			iQuestion = 0;
+			return false;
+		}
+
 		return questions[iQuestion - 1];
 	}
 
@@ -64,6 +70,15 @@ $(function(){
 	}
 
 	function nextQuestion(questionObj, triggerPlay){
+		// Quuestions are finished
+		if(!questionObj){
+			$body.attr('data-cndce-step', 'instructions');
+			nextQuestion(getNextQuestion(), false);
+
+			return;
+
+		}
+
 		currQuestion = initQuestion(questionObj);
 
 		$questionDiv.html(questionObj.question);
@@ -87,8 +102,16 @@ $(function(){
 
 		var wordBool = [];
 
-		for(var i=0; i < words.length && i < currQuestion.words.length; i++){
+		// Remove empty string
+		for(var i=0; i < words.length; i++){
+			if(words[i].trim() == ''){
+				words.splice(i, 1);	
+			}
+		}
 
+
+		for(var i=0; i < words.length && i < currQuestion.words.length; i++){
+			// TODO: Implement better checking
 			if(words[i].toLowerCase() == currQuestion.words[i].word.toLowerCase()){
 				currQuestion.words[i].isCorrect = true;
 
@@ -157,7 +180,7 @@ $(function(){
 			}
 		}
 
-
+		currQuestion = {};
 		currQuestion.question = result.repeatWords.join(' ');
 
 		$body.addClass('show-results');

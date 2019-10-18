@@ -56,6 +56,7 @@ public class TranscribeSocket extends WebSocketAdapter
   @Override
   public void onWebSocketBinary(byte[] payload, int offset, int len) {
     if (isConnected()) {
+      // logger.info("websocket receive audio");
       StreamingRecognizeRequest request =
           StreamingRecognizeRequest.newBuilder()
               .setAudioContent(ByteString.copyFrom(payload, offset, len))

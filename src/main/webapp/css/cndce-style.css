@@ -21,16 +21,17 @@ body{
 	opacity: 0;
 	visibility: collapse;
 
-	-webkit-transition: all 1s ease-in-out;
-	-o-transition: all 1s ease-in-out;
-	-moz-transition: all 1s ease-in-out;
-	transition: all 1s ease-in-out;
-
 	-webkit-transform: translate(-50%, -50%);
 	   -moz-transform: translate(-50%, -50%);
 	    -ms-transform: translate(-50%, -50%);
 	     -o-transform: translate(-50%, -50%);
 	        transform: translate(-50%, -50%);
+
+	-webkit-transition: opacity 1s ease-in-out;
+	-o-transition: opacity 1s ease-in-out;
+	-moz-transition: opacity 1s ease-in-out;
+	transition: opacity 1s ease-in-out;
+
 }
 
 body[data-cndce-step="instructions"] .cndce-instructions-container{
