@@ -50,3 +50,7 @@ $ mvn jetty:run
 Note: App can be found (by default) in port **8443**. Make sure this is open or no other instances of Jetty is running for this project
 
 Note: You may need to explicitly prepend ```https://...```.  I'll fix this in the Python version.
+
+
+## Deploying to Heroku
+[Refer to this](https://github.com/heroku/devcenter-jetty-runner)
