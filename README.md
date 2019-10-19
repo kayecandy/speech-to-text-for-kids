@@ -25,7 +25,7 @@
 - [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text/) enabled on the project
 - Service-to-service credentials (preferably in JSON)
 
-*Note: Follow upto Step 3 of this [sample](https://codelabs.developers.google.com/codelabs/speaking-with-a-webpage/index.html#0) *
+*(Note: Follow upto Step 3 of this [sample](https://codelabs.developers.google.com/codelabs/speaking-with-a-webpage/index.html#0))*
 
 
 
