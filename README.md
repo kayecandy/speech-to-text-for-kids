@@ -67,7 +67,7 @@ $ mvn jetty:run
 
 
 To compile and run compiled version
-```bash
+```shell
 $ mvn package
 $ java -jar target/dependency/jetty-runner.jar target/*.war
 ```
