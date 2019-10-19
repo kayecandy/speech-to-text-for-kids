@@ -1,4 +1,4 @@
-#Speech To Text For Kids
+# Speech To Text For Kids
 **Environment:** Java EE, Javascript, Maven
 
 **IDE's used:** Eclipse 
@@ -6,7 +6,7 @@
 **Java Servlet:** Jetty
 
 
-##Notes
+## Notes
 - Uses [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text/)
 - Streams audio input from microphone to websocket to process input
 - Requires SSL for microphone access
