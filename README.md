@@ -32,11 +32,16 @@
 Define **GOOGLE_APPLICATION_CREDENTIALS** environment variable. [Read more here](https://cloud.google.com/docs/authentication/production)
 
 
-For linux terminal, use:
-
+For linux terminal in localhost:
 ```
 $ export GOOGLE_APPLICATION_CREDENTIALS="./auth.json"
 ```
+
+For Heroku:
+```
+heroku config:set GOOGLE_APPLICATION_CREDENTIALS=./auth.json
+```
+
 
 
 *TODO: Add build instructions. I forgot the build process for this and my environment was already setup so I didn't want to replicate it just yet since this is just a contest entry. Maven should do all the work AFAIK ^_^"*
