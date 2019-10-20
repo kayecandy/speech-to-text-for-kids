@@ -48,6 +48,8 @@ For Heroku:
 heroku config:set GOOGLE_APPLICATION_CREDENTIALS=./auth.json
 ```
 
+
+
 ---
 
 
@@ -59,6 +61,7 @@ heroku config:set GOOGLE_APPLICATION_CREDENTIALS=./auth.json
 
 
 ---
+
 
 
 Start server using Maven
