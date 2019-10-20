@@ -17,6 +17,7 @@
 
 > *TODO:* Move audio processing from Javascript to the backend. Don't be lazy tsss...
 
+> *TODO:* Client-side WebSocket code is a mess
 
 
 

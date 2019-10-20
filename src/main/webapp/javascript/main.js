@@ -42,10 +42,10 @@
   // Check for non Web Audio API browsers.
   if(window.AudioContext){
 	  context = new AudioContext();
-	  alert('audio');
+	  // alert('audio');
   }else if(window.webkitAudioContext){
 	  context = new webkitAudioContext();
-	  alert('webkit')
+	  // alert('webkit')
   }else{
 	  alert("Web Audio isn't available in your browser.");
 	  return;
@@ -66,6 +66,39 @@
 
   // The first time you hit play, connect to the microphone
   playButton.addEventListener('play', function startRecording() {
+
+
+    // TESTING
+    //   var socket = new WebSocket('wss://' + location.host + '/test');
+
+    // alert('play');
+
+    // // Print on  backend using websocket
+    // new Promise(function(resolve, reject){
+
+
+
+    //   if(window.WebSocket){
+    // 	  alert(JSON.stringify(socket));
+    //   }else{
+    // 	  alert('no  websocket');
+    //   }
+      
+      
+    //   socket.addEventListener('open', resolve);
+    //   socket.addEventListener('error', reject);
+
+    // }).then(function(value){
+    //   console.log('then', value);
+    //   alert('then');
+    //   value.target.send('test test');
+    // })
+    // .catch(function(cat){
+    //   alert('catch');
+    // })
+
+    
+
     var audioPromise = navigator.mediaDevices.getUserMedia({
       audio: {
         echoCancellation: true,
@@ -76,6 +109,8 @@
         sampleSize: SAMPLE_SIZE
       }
     });
+
+
 
     audioPromise.then(function(micStream) {
       var microphone = context.createMediaStreamSource(micStream);
@@ -97,6 +132,7 @@
 
     // Create a node that sends raw bytes across the websocket
     var scriptNode = context.createScriptProcessor(4096, 1, 1);
+    
     // Need the maximum value for 16-bit signed samples, to convert from float.
     const MAX_INT = Math.pow(2, 16 - 1) - 1;
     scriptNode.addEventListener('audioprocess', function(e) {
